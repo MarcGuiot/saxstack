@@ -21,6 +21,14 @@
     <developerConnection>scm:git:ssh://github.com:MarcGuiot/saxstack.git</developerConnection>
     <url>https://github.com/MarcGuiot/saxstack.git</url>
   </scm>
+ 
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
+
 
   <licenses>
     <license>
@@ -70,6 +78,17 @@
           <excludes>
             <exclude>**/*TestCase.java</exclude>
           </excludes>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.sonatype.plugins</groupId>
+        <artifactId>nexus-staging-maven-plugin</artifactId>
+        <version>1.6.7</version>
+        <extensions>true</extensions>
+        <configuration>
+           <serverId>ossrh</serverId>
+           <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+           <autoReleaseAfterClose>false</autoReleaseAfterClose>
         </configuration>
       </plugin>
     </plugins>

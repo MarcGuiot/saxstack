@@ -4,15 +4,15 @@ import org.xml.sax.*;
 import org.xml.sax.helpers.DefaultHandler;
 
 import java.io.*;
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 public class SaxStackParser extends DefaultHandler {
-
-  private Stack nodesStack = new Stack();
+  private Deque<XmlNode> nodesStack = new ArrayDeque<XmlNode>();
   private StringBuffer charBuffer;
   private org.xml.sax.XMLReader parser;
 
-  private SaxStackParser(org.xml.sax.XMLReader parser) {
+  private SaxStackParser(XMLReader parser) {
     this.parser = parser;
     parser.setErrorHandler(this);
     parser.setContentHandler(this);
@@ -67,7 +67,7 @@ public class SaxStackParser extends DefaultHandler {
 
   public void startElement(String uri, String local, String qName, Attributes atts) {
     charBuffer.setLength(0);
-    nodesStack.push(((XmlNode)nodesStack.peek()).getSubNode(local, atts));
+    nodesStack.push(nodesStack.peek().getSubNode(local, atts));
   }
 
   public void characters(char[] chars, int start, int length) throws SAXException {
@@ -75,7 +75,7 @@ public class SaxStackParser extends DefaultHandler {
   }
 
   public void endElement(String uri, String localName, String qName) throws SAXException {
-    XmlNode node = (XmlNode)nodesStack.pop();
+    XmlNode node = nodesStack.pop();
     if (charBuffer.length() != 0) {
       node.setValue(charBuffer.toString());
     }

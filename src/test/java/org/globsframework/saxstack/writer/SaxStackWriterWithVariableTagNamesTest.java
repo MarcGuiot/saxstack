@@ -118,6 +118,10 @@ public class SaxStackWriterWithVariableTagNamesTest extends SaxStackWriterTestCa
         }
       }
     }
+
+    public void levelDone() {
+
+    }
   }
 
   static class ContactBuilder implements XmlNodeBuilder {
@@ -148,6 +152,9 @@ public class SaxStackWriterWithVariableTagNamesTest extends SaxStackWriterTestCa
         current = null;
       }
       return new XmlNodeBuilder[0];
+    }
+
+    public void levelDone() {
     }
   }
 }

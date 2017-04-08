@@ -147,6 +147,7 @@ public class XmlUtils {
       factory.leave();
       newTag.end();
     }
+    xmlBuilder.levelDone();
   }
 
   public static XMLReader getXmlReader() {

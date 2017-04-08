@@ -22,10 +22,12 @@ public interface XmlNodeBuilder {
   String getNextTagName();
 
   /**
-   * @param tag is the current tag. it is possible to add attribut on the xml tag : <A attr='value'/>
-   *            if startChild is called the child tag must be clossed before the
+   * @param tag is the current tag. it is possible to add attribute on the xml tag : <A attr='value'/>
+   *            if startChild is called the child tag must be closed before the
    * @return
    * @throws IOException
    */
   XmlNodeBuilder[] processNext(XmlTag tag) throws IOException;
+
+  void levelDone();
 }

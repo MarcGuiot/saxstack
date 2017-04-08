@@ -46,4 +46,8 @@ public class FixedXmlNodeBuilder implements XmlNodeBuilder {
     wasProcessed = true;
     return children;
   }
+
+  public void levelDone() {
+
+  }
 }

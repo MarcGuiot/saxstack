@@ -116,6 +116,9 @@ public class SaxStackWriterWithFixedTagNamesTest extends SaxStackWriterTestCase 
       return getChildren(category);
     }
 
+    public void levelDone() {
+    }
+
     protected XmlNodeBuilder[] getChildren(Category category) {
       return new XmlNodeBuilder[]{
         new ContactBuilder(category.getContacts()),
@@ -135,6 +138,9 @@ public class SaxStackWriterWithFixedTagNamesTest extends SaxStackWriterTestCase 
       tag.addAttribute("name", contact.getName());
       tag.addAttribute("phone", contact.getPhone());
       return new XmlNodeBuilder[0];
+    }
+
+    public void levelDone() {
     }
   }
 }

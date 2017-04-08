@@ -19,10 +19,12 @@ public class SaxStackWriter implements SaxStackBuilder {
 
   public void write(XmlRootBuilder xmlBuilder) throws IOException {
     write(xmlBuilder, new FilterNone());
+    writer.flush();
   }
 
   public void write(XmlRootBuilder rootBuilder, Filter filter) throws IOException {
     XmlUtils.build(filter, rootBuilder, new RootXmlTag(writer));
+    writer.flush();
   }
 
   static public void write(Writer writer, XmlRootBuilder xmlBuilder, Filter filter) throws IOException {

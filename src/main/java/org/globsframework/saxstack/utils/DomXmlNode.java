@@ -117,6 +117,10 @@ public class DomXmlNode implements XmlNode {
       };
     }
 
+    public void levelDone() {
+
+    }
+
     static private void dumpAttributes(XmlTag tag, Map attrs) throws IOException {
       Collection collection = attrs.entrySet();
       for (Iterator iterator = collection.iterator(); iterator.hasNext();) {
