@@ -1,8 +1,8 @@
 package org.globsframework.saxstack.writer;
 
-import junit.framework.Assert;
 import org.globsframework.saxstack.comparator.XmlComparator;
 import org.globsframework.saxstack.utils.XmlUtils;
+import org.junit.Assert;
 import org.xml.sax.XMLReader;
 
 import java.io.BufferedReader;

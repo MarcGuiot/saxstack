@@ -1,12 +1,16 @@
 package org.globsframework.saxstack.utils;
 
-import junit.framework.TestCase;
 import org.globsframework.saxstack.writer.PathFilter;
+import org.junit.Test;
 import org.xml.sax.helpers.AttributesImpl;
 
-public class XmlUtilsTest extends TestCase {
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+
+public class XmlUtilsTest {
   public static final String ATTR_NAME = "attr";
 
+  @Test
   public void test() throws Exception {
     String input =
       "<A>" +
@@ -28,6 +32,7 @@ public class XmlUtilsTest extends TestCase {
                  "</A>", s);
   }
 
+  @Test
   public void testGetBooleanAttrValue() throws Exception {
     checkGetBooleanAttrValue("false", false, false);
     checkGetBooleanAttrValue("true", false, true);
@@ -50,6 +55,7 @@ public class XmlUtilsTest extends TestCase {
     return attributes;
   }
 
+  @Test
   public void testGetIntAttrValue() throws Exception {
     checkGetIntAttrValue("12", 0, 12);
     checkGetIntAttrValue(null, 99, 99);
@@ -66,6 +72,7 @@ public class XmlUtilsTest extends TestCase {
     assertEquals(expected, XmlUtils.getIntAttrValue(ATTR_NAME, attributes, defaultValue));
   }
 
+  @Test
   public void testGetDoubleAttrValue() throws Exception {
     checkGetDoubleAttrValue("12.3", 0, 12.3);
     checkGetDoubleAttrValue(null, 99.9, 99.9);
