@@ -15,7 +15,7 @@ public class XmlBootstrapNode implements XmlNode {
     return null;
   }
 
-  public XmlNode getSubNode(String childName, Attributes xmlAttrs) {
+  public XmlNode getSubNode(String childName, Attributes xmlAttrs, String uri, String fullName) {
     if (childName.equals(rootNodeName)) {
       return rootNode;
     }

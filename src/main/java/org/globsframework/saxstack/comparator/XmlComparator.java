@@ -243,7 +243,7 @@ public class XmlComparator {
       super("root", null);
     }
 
-    public XmlNode getSubNode(String childName, Attributes xmlAttrs) {
+    public XmlNode getSubNode(String childName, Attributes xmlAttrs, String uri, String fullName) {
       XmlComparableNode o = new XmlEquivalentComparator(childName, xmlAttrs);
       addChild(o);
       return o;
@@ -266,7 +266,7 @@ public class XmlComparator {
       super("root", null);
     }
 
-    public XmlNode getSubNode(String childName, Attributes xmlAttrs) {
+    public XmlNode getSubNode(String childName, Attributes xmlAttrs, String uri, String fullName) {
       XmlComparableNode o = new XmlEqualComparator(childName, xmlAttrs);
       addChild(o);
       return o;

@@ -44,7 +44,7 @@ public class XmlNodeToBuilder implements XmlNode {
     String attrValue;
   }
 
-  public XmlNode getSubNode(String childName, Attributes xmlAttrs) {
+  public XmlNode getSubNode(String childName, Attributes xmlAttrs, String uri, String fullName) {
     try {
       return new XmlNodeToBuilder(xmlTag.createChildTag(childName), xmlAttrs);
     }

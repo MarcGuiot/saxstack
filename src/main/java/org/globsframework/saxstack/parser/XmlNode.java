@@ -4,9 +4,9 @@ import org.xml.sax.Attributes;
 
 public interface XmlNode {
 
-  public XmlNode getSubNode(String childName, Attributes xmlAttrs) throws ExceptionHolder;
+  XmlNode getSubNode(String childName, Attributes xmlAttrs, String uri, String fullName) throws ExceptionHolder;
 
-  public void setValue(String value) throws ExceptionHolder;
+  void setValue(String value) throws ExceptionHolder;
 
-  public void complete() throws ExceptionHolder;
+  void complete() throws ExceptionHolder;
 }

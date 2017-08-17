@@ -13,7 +13,7 @@ public class SilentXmlNode implements XmlNode {
     return TYPE_NAME;
   }
 
-  public XmlNode getSubNode(String childName, Attributes xmlAttrs) {
+  public XmlNode getSubNode(String childName, Attributes xmlAttrs, String uri, String fullName) {
     return this;
   }
 

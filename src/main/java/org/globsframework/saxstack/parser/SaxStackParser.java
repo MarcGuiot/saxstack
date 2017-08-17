@@ -67,7 +67,7 @@ public class SaxStackParser extends DefaultHandler {
 
   public void startElement(String uri, String local, String qName, Attributes atts) {
     charBuffer.setLength(0);
-    nodesStack.push(nodesStack.peek().getSubNode(local, atts));
+    nodesStack.push(nodesStack.peek().getSubNode(local, atts, uri, qName));
   }
 
   public void characters(char[] chars, int start, int length) throws SAXException {

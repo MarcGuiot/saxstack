@@ -33,7 +33,7 @@ public class DocReadSample {
   private static class AnyXmlNode extends DefaultXmlNode {
     List<ServerXmlNode> serverXmlNodeList = new ArrayList<ServerXmlNode>();
 
-    public XmlNode getSubNode(String childName, Attributes xmlAttrs) {
+    public XmlNode getSubNode(String childName, Attributes xmlAttrs, String uri, String fullName) {
       if (childName.equals("server")) {
         ServerXmlNode node = new ServerXmlNode();
         serverXmlNodeList.add(node);
@@ -55,7 +55,7 @@ public class DocReadSample {
       }
     };
 
-    public XmlNode getSubNode(String childName, Attributes xmlAttrs) {
+    public XmlNode getSubNode(String childName, Attributes xmlAttrs, String uri, String fullName) {
       current = childName;
       return extractValueXmlNode;
     }

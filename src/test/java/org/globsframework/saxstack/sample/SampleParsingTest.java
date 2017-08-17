@@ -76,11 +76,11 @@ public class SampleParsingTest {
          this.contacts = contacts;
       }
 
-      public XmlNode getSubNode(String childName, Attributes xmlAttrs) {
+      public XmlNode getSubNode(String childName, Attributes xmlAttrs, String uri, String fullName) {
          if (childName.equals("contact")) {
             return new ContactNode(xmlAttrs, contacts);
          }
-         return super.getSubNode(childName, xmlAttrs);
+         return super.getSubNode(childName, xmlAttrs, uri, fullName);
       }
    }
 
@@ -94,11 +94,11 @@ public class SampleParsingTest {
          contacts.add(contact);
       }
 
-      public XmlNode getSubNode(String childName, Attributes xmlAttrs) {
+      public XmlNode getSubNode(String childName, Attributes xmlAttrs, String uri, String fullName) {
          if (childName.equals("email")) {
             return new EmailNode(xmlAttrs, contact);
          }
-         return super.getSubNode(childName, xmlAttrs);
+         return super.getSubNode(childName, xmlAttrs, uri, fullName);
       }
    }
 

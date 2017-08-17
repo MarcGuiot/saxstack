@@ -7,7 +7,7 @@ import org.xml.sax.Attributes;
 public class BootstrapDomXmlNode implements XmlNode {
   private DomXmlNode child;
 
-  public XmlNode getSubNode(String childName, Attributes xmlAttrs) throws ExceptionHolder {
+  public XmlNode getSubNode(String childName, Attributes xmlAttrs, String uri, String fullName) throws ExceptionHolder {
     if (child != null) {
       throw new RuntimeException("Only one child is allowed");
     }

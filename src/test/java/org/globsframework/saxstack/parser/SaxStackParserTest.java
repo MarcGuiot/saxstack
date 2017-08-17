@@ -25,16 +25,23 @@ public class SaxStackParserTest {
                               "  <ptf:item>Baby food</ptf:item>" +
                               "</root>"));
       assertEquals(1, node.children.size());
-      assertEquals("item", ((DummyXmlNode)node.children.get(0)).name);
+      DummyXmlNode xmlNode = (DummyXmlNode)node.children.get(0);
+      assertEquals("item", xmlNode.name);
+      assertEquals("aa", xmlNode.uri);
+      assertEquals("ptf:item", xmlNode.fullName);
    }
 
    static class DummyXmlNode implements XmlNode {
       String name;
+      String uri;
+      String fullName;
       List children = new ArrayList();
       public String value;
 
-      public XmlNode getSubNode(String childName, Attributes xmlAttrs) {
+      public XmlNode getSubNode(String childName, Attributes xmlAttrs, String uri, String fullName) {
          name = childName;
+         this.uri = uri;
+         this.fullName = fullName;
          DummyXmlNode child = new DummyXmlNode();
          children.add(child);
          return child;
