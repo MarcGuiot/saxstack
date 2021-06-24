@@ -4,7 +4,7 @@
   <groupId>org.mathieuchauvet</groupId>
   <artifactId>saxstack</artifactId>
   <packaging>jar</packaging>
-  <version>0.0.5</version>
+  <version>0.0.6-RELEASE</version>
   <name>SAXStack</name>
 
   <dependencies>
