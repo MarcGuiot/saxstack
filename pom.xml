@@ -22,6 +22,14 @@
     <url>https://github.com/MarcGuiot/saxstack.git</url>
   </scm>
  
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>GitHub Packages</name>
+      <url>https://maven.pkg.github.com/mathieu-chauvet/saxstack</url>
+    </repository>
+  </distributionManagement>
+         
 <!--  <distributionManagement>
     <snapshotRepository>
       <id>ossrh</id>
