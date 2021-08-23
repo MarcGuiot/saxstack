@@ -4,7 +4,7 @@
   <groupId>org.globsframework</groupId>
   <artifactId>saxstack</artifactId>
   <packaging>jar</packaging>
-  <version>0.0.1</version>
+  <version>2.1-RELEASE</version>
   <name>SAXStack</name>
 
   <dependencies>
