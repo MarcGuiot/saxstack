@@ -21,20 +21,22 @@
     <developerConnection>scm:git:ssh://github.com:MarcGuiot/saxstack.git</developerConnection>
     <url>https://github.com/MarcGuiot/saxstack.git</url>
   </scm>
-  <repositories>
+  <!-- <repositories>
     <repository>
       <id>gitlab-maven</id>
       <url>${env.CI_API_V4_URL}/projects/${env.CI_PROJECT_ID}/packages/maven</url>
     </repository>
-  </repositories>
+  </repositories> -->
   <distributionManagement>
     <repository>
-      <id>gitlab-maven</id>
-      <url>${CI_API_V4_URL}/projects/${env.CI_PROJECT_ID}/packages/maven</url>
+      <id>github</id>
+      <name>GitHub Packages</name>
+      <url>https://maven.pkg.github.com/mathieu-chauvet/saxstack</url>
     </repository>
     <snapshotRepository>
-      <id>gitlab-maven</id>
-      <url>${CI_API_V4_URL}/projects/${env.CI_PROJECT_ID}/packages/maven</url>
+      <id>github</id>
+      <name>GitHub Packages</name>
+      <url>https://maven.pkg.github.com/mathieu-chauvet/saxstack</url>
     </snapshotRepository>
   </distributionManagement>
 
