@@ -32,4 +32,4 @@ jobs:
       #run: mvn deploy -s $GITHUB_WORKSPACE/ci_settings.xml
       run: mvn deploy
       env:
-        GITHUB_TOKEN: ${{ github.token }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
