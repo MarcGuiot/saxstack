@@ -4,7 +4,7 @@
   <groupId>org.globsframework</groupId>
   <artifactId>saxstack</artifactId>
   <packaging>jar</packaging>
-  <version>2.1</version>
+  <version>2.1-RELEASE</version>
   <name>SAXStack</name>
 
   <dependencies>
@@ -21,30 +21,19 @@
     <developerConnection>scm:git:ssh://github.com:MarcGuiot/saxstack.git</developerConnection>
     <url>https://github.com/MarcGuiot/saxstack.git</url>
   </scm>
-  <repositories>
-    <repository>
-      <id>gitlab-maven</id>
-      <url>${env.CI_API_V4_URL}/projects/${env.CI_PROJECT_ID}/packages/maven</url>
-    </repository>
-  </repositories>
+
   <distributionManagement>
     <repository>
-      <id>gitlab-maven</id>
-      <url>${CI_API_V4_URL}/projects/${env.CI_PROJECT_ID}/packages/maven</url>
+      <id>github</id>
+      <name>GitHub Packages</name>
+      <url>https://maven.pkg.github.com/${env.GITHUB_ACTOR}/${project.artifactId}</url>
     </repository>
     <snapshotRepository>
-      <id>gitlab-maven</id>
-      <url>${CI_API_V4_URL}/projects/${env.CI_PROJECT_ID}/packages/maven</url>
+      <id>github</id>
+      <name>GitHub Packages</name>
+      <url>https://maven.pkg.github.com/${env.GITHUB_ACTOR}/${project.artifactId}</url>
     </snapshotRepository>
   </distributionManagement>
-
-<!--  <distributionManagement>
-    <snapshotRepository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-    </snapshotRepository>
-  </distributionManagement>
--->
 
   <licenses>
     <license>
@@ -105,17 +94,6 @@
           </excludes>
         </configuration>
       </plugin>
-      <!--      <plugin>-->
-<!--        <groupId>org.sonatype.plugins</groupId>-->
-<!--        <artifactId>nexus-staging-maven-plugin</artifactId>-->
-<!--        <version>1.6.7</version>-->
-<!--        <extensions>true</extensions>-->
-<!--        <configuration>-->
-<!--           <serverId>ossrh</serverId>-->
-<!--           <nexusUrl>https://oss.sonatype.org/</nexusUrl>-->
-<!--           <autoReleaseAfterClose>false</autoReleaseAfterClose>-->
-<!--        </configuration>-->
-<!--      </plugin>-->
     </plugins>
   </build>
 </project>
