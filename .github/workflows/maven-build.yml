@@ -26,3 +26,10 @@ jobs:
 
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    
+    - name: Deploy to registry
+      env:
+        GH_MAVEN_REGISTRY_USER: ${{ secrets.PRIVATE_ACCESS_TOKEN_USER }}
+        GH_MAVEN_REGISTRY_ACCESS_TOKEN: ${{ secrets.PRIVATE_ACCESS_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: mvn -s settings.xml deploy
