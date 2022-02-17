@@ -57,10 +57,7 @@ public class SaxStackParser extends DefaultHandler {
     catch (SAXExceptionHolder e) {
       throw e.getExceptionHolder();
     }
-    catch (SAXException e) {
-      throw new ExceptionHolder(e);
-    }
-    catch (IOException e) {
+    catch (SAXException | IOException e) {
       throw new ExceptionHolder(e);
     }
   }
