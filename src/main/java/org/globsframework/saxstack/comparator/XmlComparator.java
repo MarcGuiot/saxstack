@@ -287,7 +287,7 @@ public class XmlComparator {
         pool = new Integer[val + 10];
         System.arraycopy(tmp, 0, pool, 0, tmp.length);
         for (int i = tmp.length; i < pool.length; i++) {
-          pool[i] = new Integer(i);
+          pool[i] = i;
         }
       }
       return pool;
