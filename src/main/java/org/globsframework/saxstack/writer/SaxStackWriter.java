@@ -10,29 +10,29 @@ import java.io.Writer;
  */
 
 public class SaxStackWriter implements SaxStackBuilder {
-  public static final String XML_HEADER = "<?xml version='1.0' encoding='UTF-8'?>";
-  Writer writer;
+    public static final String XML_HEADER = "<?xml version='1.0' encoding='UTF-8'?>";
+    Writer writer;
 
-  public SaxStackWriter(Writer writer) {
-    this.writer = writer;
-  }
+    public SaxStackWriter(Writer writer) {
+        this.writer = writer;
+    }
 
-  public void write(XmlRootBuilder xmlBuilder) throws IOException {
-    write(xmlBuilder, new FilterNone());
-    writer.flush();
-  }
+    public void write(XmlRootBuilder xmlBuilder) throws IOException {
+        write(xmlBuilder, new FilterNone());
+        writer.flush();
+    }
 
-  public void write(XmlRootBuilder rootBuilder, Filter filter) throws IOException {
-    XmlUtils.build(filter, rootBuilder, new RootXmlTag(writer));
-    writer.flush();
-  }
+    public void write(XmlRootBuilder rootBuilder, Filter filter) throws IOException {
+        XmlUtils.build(filter, rootBuilder, new RootXmlTag(writer));
+        writer.flush();
+    }
 
-  static public void write(Writer writer, XmlRootBuilder xmlBuilder, Filter filter) throws IOException {
-    new SaxStackWriter(writer).write(xmlBuilder, filter);
-  }
+    static public void write(Writer writer, XmlRootBuilder xmlBuilder, Filter filter) throws IOException {
+        new SaxStackWriter(writer).write(xmlBuilder, filter);
+    }
 
-  static public void write(Writer writer, XmlRootBuilder rootBuilder) throws IOException {
-    new SaxStackWriter(writer).write(rootBuilder, new FilterNone());
-  }
+    static public void write(Writer writer, XmlRootBuilder rootBuilder) throws IOException {
+        new SaxStackWriter(writer).write(rootBuilder, new FilterNone());
+    }
 
 }

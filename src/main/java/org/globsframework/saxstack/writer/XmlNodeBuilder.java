@@ -17,17 +17,17 @@ import java.io.IOException;
 
 public interface XmlNodeBuilder {
 
-  boolean hasNext();
+    boolean hasNext();
 
-  String getNextTagName();
+    String getNextTagName();
 
-  /**
-   * @param tag is the current tag. it is possible to add attribute on the xml tag : <A attr='value'/>
-   *            if startChild is called the child tag must be closed before the
-   * @return
-   * @throws IOException
-   */
-  XmlNodeBuilder[] processNext(XmlTag tag) throws IOException;
+    /**
+     * @param tag is the current tag. it is possible to add attribute on the xml tag : <A attr='value'/>
+     *            if startChild is called the child tag must be closed before the
+     * @return
+     * @throws IOException
+     */
+    XmlNodeBuilder[] processNext(XmlTag tag) throws IOException;
 
-  void levelDone();
+    void levelDone();
 }

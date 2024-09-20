@@ -8,14 +8,14 @@ import java.io.IOException;
 
 public interface XmlRootBuilder {
 
-  /**
-   * @return the root tag name
-   */
-  String getTagName();
+    /**
+     * @return the root tag name
+     */
+    String getTagName();
 
-  /**
-   * @param rootTag
-   * @return the different type of noeBuilder the root can contain. The root builder do
-   */
-  XmlNodeBuilder[] process(XmlTag rootTag) throws IOException;
+    /**
+     * @param rootTag
+     * @return the different type of noeBuilder the root can contain. The root builder do
+     */
+    XmlNodeBuilder[] process(XmlTag rootTag) throws IOException;
 }

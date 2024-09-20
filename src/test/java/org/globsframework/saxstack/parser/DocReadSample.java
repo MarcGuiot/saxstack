@@ -13,66 +13,65 @@ import java.util.Map;
 
 public class DocReadSample {
 
-  @Test
-  public void testSample() throws Exception {
-    AnyXmlNode node = new AnyXmlNode();
-    SaxStackParser.parse(XmlUtils.getXmlReader(), node, new StringReader(DATA));
-    Assert.assertEquals(1, node.serverXmlNodeList.size());
-    ServerXmlNode first = node.serverXmlNodeList.get(0);
-    Assert.assertEquals("my_login", first.config.get("username"));
-  }
-
-  private static class ExtractValueXmlNode extends DefaultXmlNode {
-    String data;
-
-    public void setValue(String value) {
-      data = value;
+    @Test
+    public void testSample() throws Exception {
+        AnyXmlNode node = new AnyXmlNode();
+        SaxStackParser.parse(XmlUtils.getXmlReader(), node, new StringReader(DATA));
+        Assert.assertEquals(1, node.serverXmlNodeList.size());
+        ServerXmlNode first = node.serverXmlNodeList.get(0);
+        Assert.assertEquals("my_login", first.config.get("username"));
     }
-  }
 
-  private static class AnyXmlNode extends DefaultXmlNode {
-    List<ServerXmlNode> serverXmlNodeList = new ArrayList<ServerXmlNode>();
+    private static class ExtractValueXmlNode extends DefaultXmlNode {
+        String data;
 
-    public XmlNode getSubNode(String childName, Attributes xmlAttrs, String uri, String fullName) {
-      if (childName.equals("server")) {
-        ServerXmlNode node = new ServerXmlNode();
-        serverXmlNodeList.add(node);
-        return node;
-      }
-      else {
-        return this;
-      }
+        public void setValue(String value) {
+            data = value;
+        }
     }
-  }
 
-  private static class ServerXmlNode extends DefaultXmlNode {
-    Map<String, String> config = new HashMap<String, String>();
-    String current;
+    private static class AnyXmlNode extends DefaultXmlNode {
+        List<ServerXmlNode> serverXmlNodeList = new ArrayList<ServerXmlNode>();
 
-    ExtractValueXmlNode extractValueXmlNode = new ExtractValueXmlNode() {
-      public void complete() {
-        config.put(current, data);
-      }
-    };
-
-    public XmlNode getSubNode(String childName, Attributes xmlAttrs, String uri, String fullName) {
-      current = childName;
-      return extractValueXmlNode;
+        public XmlNode getSubNode(String childName, Attributes xmlAttrs, String uri, String fullName) {
+            if (childName.equals("server")) {
+                ServerXmlNode node = new ServerXmlNode();
+                serverXmlNodeList.add(node);
+                return node;
+            } else {
+                return this;
+            }
+        }
     }
-  }
 
-  public final static String DATA =
-    "<servers>\n" +
-    "    <server>\n" +
-    "      <id>server001</id>\n" +
-    "      <username>my_login</username>\n" +
-    "      <password>my_password</password>\n" +
-    "      <privateKey>${user.home}/.ssh/id_dsa</privateKey>\n" +
-    "      <passphrase>some_passphrase</passphrase>\n" +
-    "      <filePermissions>664</filePermissions>\n" +
-    "      <directoryPermissions>775</directoryPermissions>\n" +
-    "      <configuration></configuration>\n" +
-    "    </server>\n" +
-    "  </servers>";
+    private static class ServerXmlNode extends DefaultXmlNode {
+        Map<String, String> config = new HashMap<String, String>();
+        String current;
+
+        ExtractValueXmlNode extractValueXmlNode = new ExtractValueXmlNode() {
+            public void complete() {
+                config.put(current, data);
+            }
+        };
+
+        public XmlNode getSubNode(String childName, Attributes xmlAttrs, String uri, String fullName) {
+            current = childName;
+            return extractValueXmlNode;
+        }
+    }
+
+    public final static String DATA =
+            "<servers>\n" +
+                    "    <server>\n" +
+                    "      <id>server001</id>\n" +
+                    "      <username>my_login</username>\n" +
+                    "      <password>my_password</password>\n" +
+                    "      <privateKey>${user.home}/.ssh/id_dsa</privateKey>\n" +
+                    "      <passphrase>some_passphrase</passphrase>\n" +
+                    "      <filePermissions>664</filePermissions>\n" +
+                    "      <directoryPermissions>775</directoryPermissions>\n" +
+                    "      <configuration></configuration>\n" +
+                    "    </server>\n" +
+                    "  </servers>";
 
 }

@@ -4,17 +4,17 @@ import org.xml.sax.Attributes;
 
 public class DefaultXmlNode implements org.globsframework.saxstack.parser.XmlNode {
 
-  public XmlNode getSubNode(String childName, Attributes xmlAttrs, String uri, String fullName) {
-    return SilentXmlNode.INSTANCE;
-  }
+    public XmlNode getSubNode(String childName, Attributes xmlAttrs, String uri, String fullName) {
+        return SilentXmlNode.INSTANCE;
+    }
 
-  public void setValue(String value) {
-  }
+    public void setValue(String value) {
+    }
 
-  /**
-   * Default implementation does nothing.
-   */
-  public void complete() {
-  }
+    /**
+     * Default implementation does nothing.
+     */
+    public void complete() {
+    }
 
 }
